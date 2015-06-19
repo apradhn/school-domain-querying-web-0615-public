@@ -1,4 +1,5 @@
 require_relative 'spec_helper'
+require "pry"
 
 describe Registration do
 
@@ -34,7 +35,6 @@ describe Registration do
     it 'creates a Registrations table' do
       Registration.drop_table
       Registration.create_table
-
       table_check_sql = "SELECT tbl_name FROM sqlite_master WHERE type='table' AND tbl_name='registrations';"
       expect(DB[:conn].execute(table_check_sql)[0]).to eq(['registrations'])
     end

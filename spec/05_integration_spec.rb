@@ -63,7 +63,7 @@ describe "Integration" do
     it "persists changes to changed objects after course added" do
       comp_sci.name = "Communications"
       dot_net.name = "Underwater Basket Weaving"
-      comp_sci.add_course dot_net
+      comp_sci.add_course(dot_net)
 
       comp_sci_from_db = Department.find_by_name "Communications"
       expect(comp_sci_from_db.courses.count).to eq 1
